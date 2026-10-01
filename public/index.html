@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>3D Multiplayer Brawler</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Container Rendering Three.js -->
+    <div id="canvas-container"></div>
+
+    <!-- Interface User (HUD Overlay) -->
+    <div id="hud-overlay">
+        <div class="scoreboard">
+            <div class="team-score team-blue">BLUE: <span id="score-blue">0</span></div>
+            <div class="vs">VS</div>
+            <div class="team-score team-red">RED: <span id="score-red">0</span></div>
+        </div>
+
+        <!-- Touch Controls untuk Mobile -->
+        <div class="touch-controls">
+            <div class="joystick-zone" id="joystick">
+                <div class="joystick-knob" id="knob"></div>
+            </div>
+            <div class="skill-buttons">
+                <button class="btn-action" id="btn-attack">ATK</button>
+                <button class="btn-action" id="btn-skill">SKILL</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Selection Hero -->
+    <div id="hero-select-modal">
+        <h1 class="title">PILIH HERO ANDA</h1>
+        <div class="hero-cards">
+            <div class="hero-card" onclick="selectHero('vanguard')">
+                <div class="hero-icon vanguard-icon"></div>
+                <h3>Vanguard</h3>
+                <p>Role: Tank</p>
+                <small>HP Tinggi | Pergerakan Lambat</small>
+            </div>
+            <div class="hero-card" onclick="selectHero('striker')">
+                <div class="hero-icon striker-icon"></div>
+                <h3>Striker</h3>
+                <p>Role: DPS</p>
+                <small>Damage Tinggi | Pergerakan Cepat</small>
+            </div>
+            <div class="hero-card" onclick="selectHero('support')">
+                <div class="hero-icon support-icon"></div>
+                <h3>Support</h3>
+                <p>Role: Healer</p>
+                <small>Buff Area | Pergerakan Sedang</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+
+    <!-- Custom Game Modules -->
+    <script src="js/network.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
